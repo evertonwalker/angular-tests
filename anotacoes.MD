@@ -9,4 +9,5 @@ Enquanto o Karma é um test runner, um executor de testes criado pela equipe do 
 
 # Karma
 
-Um ponto interessante é que você por ir devolvendo seus testes e ir observando em tempo real.
+Um ponto interessante é que você por ir devolvendo seus testes e ir observando em tempo real, outro ponto também é o fato dos testes dos karma,
+não seguir uma ordem de execução, fazendo assim saber usar métodos como <b>beforeEach()</b> em seus trechos.
