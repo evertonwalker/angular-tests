@@ -6,6 +6,7 @@ import { LikeWidgetModule } from './like-widget.module';
 
 describe(LikeWidgetComponent.name, () => {
   let fixture: ComponentFixture<LikeWidgetComponent>;
+  let component: LikeWidgetComponent;
 
   beforeEach( async () => {
 
@@ -18,11 +19,50 @@ describe(LikeWidgetComponent.name, () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(LikeWidgetComponent);
+    component = fixture.componentInstance;
 
   });
 
   it('Should create component', () => {
-    const instance = fixture.componentInstance;
-    expect(instance).toBeTruthy();
+    expect(component).toBeTruthy();
   });
+
+  // Por padrão os ciclos de vidas do component devem ser chamados no teste, ou seja eles não são chamados automaticamentes. --> detectChanges()
+  // é interessante que você não chame ele no beforeEach, porque dessa forma não dá tempo de passar atributos para o component antes dele ser chamado.
+  it('Should auto generate id during NgOnit when (@Input id) is not assinged', () => {
+    fixture.detectChanges();
+    expect(component.id).toBeTruthy();
+
+  })
+
+  it('Should NOT auto-generated Id during NgOnit when (@Input Id) is assinged', () => {
+    const someId = 'someId';
+    component.id = someId;
+    fixture.detectChanges();
+    expect(component.id).toBe(someId);
+  })
+
+  // É interessante que quando for testar métodos assyncronos vc use o callback para validar se essa chamada foi executada.
+  it(`#${LikeWidgetComponent.prototype.like.name} should trigger (@Output liked) emission when call`, done => {
+    fixture.detectChanges();
+    component.liked.subscribe(() => {
+      expect(true).toBeTrue();
+      done();
+    });
+    component.like();
+  });
+
+  it(`#${LikeWidgetComponent.prototype.like.name} should trigger emission when call - way two with spyOn`, () => {
+    // Você passa o objeto no primeiro parâmetro e no segundo qual a função que você quer ficar observando
+    // Sem o spyOn esse teste iria falhar, pois não teriamos como saber sem observar o objeto na qual estamos testando seu método assincrono.
+    spyOn(component.liked, 'emit'); // -> ao Fazer isso transformamos o método em um spy
+    fixture.detectChanges();
+    component.like();
+    expect(component.liked.emit).toHaveBeenCalled()
+
+  });
+
+
+
+
 });

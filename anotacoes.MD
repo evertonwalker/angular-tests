@@ -23,3 +23,8 @@ O atributo aria-describedby permite que o elemento seja descrito pelo elemento c
 Pode acontecer ao testar um component nós precisarmos de injetar serviços de dependências neles e esses serviços possuirem mais dependências, então ficaremos preso em um ciclo ao tentarmos testar.
 Pensando nisso a equipe do angular criou um objeto chamado TestBed que nós ajudar compilando esses componentes de forma que nós vamos conseguir testar, ela serve para criar módulos de testes nos quais
  o componente que queremos testar deve fazer parte.
+
+# Curiosidades sobre a função IT dos testes
+
+A função it, quando recebe um parâmetro geralmente chamado done, este parâmetro é uma referência para uma função que sinaliza para o teste que ele terminou.
+É importante que o desenvolvedor chame a função done no momento em que achar adequado, caso contrário o teste nunca terminará e um erro de timeout será disparado.
