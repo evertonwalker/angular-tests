@@ -11,3 +11,15 @@ Enquanto o Karma é um test runner, um executor de testes criado pela equipe do 
 
 Um ponto interessante é que você por ir devolvendo seus testes e ir observando em tempo real, outro ponto também é o fato dos testes dos karma,
 não seguir uma ordem de execução, fazendo assim saber usar métodos como <b>beforeEach()</b> em seus trechos.
+
+# acessibilidade
+
+O atributo aria-live é utilizado quando mudamos o conteúdo de algum elemento dinamicamente e queremos que o novo valor seja anunciado através de screen readers.
+Já o atributo aria-atomic indica para o screen reader se ele deve anunciar apenas o conteúdo que mudou dinamicamente de uma live area ou se deve anunciar todo o conteúdo.
+O atributo aria-describedby permite que o elemento seja descrito pelo elemento cujo o ID foi atribuído à propriedade
+
+# TestBed
+
+Pode acontecer ao testar um component nós precisarmos de injetar serviços de dependências neles e esses serviços possuirem mais dependências, então ficaremos preso em um ciclo ao tentarmos testar.
+Pensando nisso a equipe do angular criou um objeto chamado TestBed que nós ajudar compilando esses componentes de forma que nós vamos conseguir testar, ela serve para criar módulos de testes nos quais
+ o componente que queremos testar deve fazer parte.
