@@ -56,15 +56,15 @@ Adicione a library instalada:
 
 <code> plugins: [ require('karma-firefox-launcher') ] </code>
 
-    E não esqueça de especifica o browser mais embaixo:
+E não esqueça de especifica o browser mais embaixo:
 
-    <code> browsers: ['Chrome', 'Firefox'] </code>
+<code> browsers: ['Chrome', 'Firefox'] </code>
 
-    Feito isso seu projeto estara pronto para levantar olhando para os dois navegadores.
-    <b> MAS </b> Isso não é tão recomendado, pois o pc do usuário talvez não tenha, então ao invés de setar os navegadores no karma.conf.js diretamente, você pode, especificar através do script:
+Feito isso seu projeto estara pronto para levantar olhando para os dois navegadores.
+<b> MAS </b> Isso não é tão recomendado, pois o pc do usuário talvez não tenha, então ao invés de setar os navegadores no karma.conf.js diretamente, você pode, especificar através do script:
 
-    <code> "test-common": "ng test --browsers Chrome,Firefox", </code>
-    Dentro do package.json
+<code> "test-common": "ng test --browsers Chrome,Firefox", </code>
+Dentro do package.json
 
 # Navegadores Headless
 
@@ -82,14 +82,14 @@ E chama-lo no <i>package.json</i>, dessa forma:
 
 adicione em karma.conf.js, no final:
 
-<code>
+```
 customLaunchers: {
       FirefoxSemCabeca: {
         base: 'Firefox', // Baseado no firefox
         flags: ['-headless'] // E quando for chamado vai passar o parâmetro para usar o modo headless
       }
 }
+```
 
-</code>
-
-E no package json, você precisa apenas executar o script: <code> "test-ci": "ng test --watch=false --browsers ChromeHeadless,FirefoxSemCabeca" </code>
+E no package json, você precisa apenas executar o script:
+<code>"test-ci": "ng test --watch=false --browsers ChromeHeadless,FirefoxSemCabeca" </code>
