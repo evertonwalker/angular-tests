@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome Headless 88.0.4324.192 (Mac OS 10.15.7)" package="" timestamp="2021-03-11T18:43:35" id="0" hostname="MacBook-Pro-de-Everton.local" tests="9" errors="0" failures="0" time="0.062">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/88.0.4324.192 Safari/537.36"/>
+  </properties>
+  <testcase name="UniquedIdService #generateUniqueIdWithPrefix should generate id when called with prefi" time="0.022" classname="Chrome_Headless_88_0_4324_192_(Mac_OS_10_15_7).UniquedIdService"/>
+  <testcase name="UniquedIdService #generateUniqueIdWithPrefix should not duplicated when called multiple times" time="0" classname="Chrome_Headless_88_0_4324_192_(Mac_OS_10_15_7).UniquedIdService"/>
+  <testcase name="UniquedIdService #getNumberOfGereneratedUniqueIds should return the number of generated ids when called " time="0" classname="Chrome_Headless_88_0_4324_192_(Mac_OS_10_15_7).UniquedIdService"/>
+  <testcase name="UniquedIdService #getNumberOfGereneratedUniqueIds should throw exception when called with empty " time="0" classname="Chrome_Headless_88_0_4324_192_(Mac_OS_10_15_7).UniquedIdService"/>
+  <testcase name="LikeWidgetComponent #like should trigger (@Output liked) emission when call" time="0.024" classname="Chrome_Headless_88_0_4324_192_(Mac_OS_10_15_7).LikeWidgetComponent"/>
+  <testcase name="LikeWidgetComponent Should create component" time="0.004" classname="Chrome_Headless_88_0_4324_192_(Mac_OS_10_15_7).LikeWidgetComponent"/>
+  <testcase name="LikeWidgetComponent Should auto generate id during NgOnit when (@Input id) is not assinged" time="0.003" classname="Chrome_Headless_88_0_4324_192_(Mac_OS_10_15_7).LikeWidgetComponent"/>
+  <testcase name="LikeWidgetComponent Should NOT auto-generated Id during NgOnit when (@Input Id) is assinged" time="0.003" classname="Chrome_Headless_88_0_4324_192_(Mac_OS_10_15_7).LikeWidgetComponent"/>
+  <testcase name="LikeWidgetComponent #like should trigger emission when call - way two with spyOn" time="0.006" classname="Chrome_Headless_88_0_4324_192_(Mac_OS_10_15_7).LikeWidgetComponent"/>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>

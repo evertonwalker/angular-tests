@@ -112,4 +112,12 @@ plugins: [
 
 - Colocar para ser executado no package.json o script : <br>
 
-<code> --reporters junit </code>
+<code> --reporters junit -> "test-ci": "ng test --watch=false --reporters junit --browsers ChromeHeadless" </code>
+
+# Cobertura de testes
+
+Para testar a cobertura de testes no seu código, você pode configurar um script e assim ele irá exibir os resultados no terminal
+e além disso ele vai criar uma pasta chamada coverage que lá irá ter u <b>HTML</b> onde você poderá verificar quais linhas,
+não estão sendo cobertas.
+
+script: <code > "test-coverage": "ng test --watch=false --sourceMap=true --codeCoverage=true --browsers ChromeHeadless", </script>
