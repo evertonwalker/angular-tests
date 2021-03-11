@@ -91,5 +91,5 @@ customLaunchers: {
 }
 ```
 
-E no package json, você precisa apenas executar o script:
+E no package json, você precisa apenas executar o script: <br>
 <code>"test-ci": "ng test --watch=false --browsers ChromeHeadless,FirefoxSemCabeca" </code>
