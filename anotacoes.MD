@@ -93,3 +93,23 @@ customLaunchers: {
 
 E no package json, você precisa apenas executar o script: <br>
 <code>"test-ci": "ng test --watch=false --browsers ChromeHeadless,FirefoxSemCabeca" </code>
+
+# Relatório de testes
+
+Para você conseguir relatórios sobre os seus testes no ambiente de CI, também é bem simples fazer a configuração, o que você precisa é:
+
+- Instalar o plugin: <br>
+
+<code> npm i karma-junit-reporter@2.0.1 -D </code>
+
+- Colocar na lista de plugins do karma:
+
+```
+plugins: [
+ require("karma-junit-reporter"),
+    ],
+```
+
+- Colocar para ser executado no package.json o script : <br>
+
+<code> --reporters junit </code>

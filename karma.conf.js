@@ -3,40 +3,38 @@
 
 module.exports = function (config) {
   config.set({
-    basePath: '',
-    frameworks: ['jasmine', '@angular-devkit/build-angular'],
+    basePath: "",
+    frameworks: ["jasmine", "@angular-devkit/build-angular"],
     plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-firefox-launcher'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      require("karma-jasmine"),
+      require("karma-chrome-launcher"),
+      require("karma-firefox-launcher"),
+      require("karma-jasmine-html-reporter"),
+      require("karma-coverage"),
+      require("@angular-devkit/build-angular/plugins/karma"),
+      require("karma-junit-reporter"),
     ],
     client: {
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false, // leave Jasmine Spec Runner output visible in browser
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ng-test1'),
-      subdir: '.',
-      reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
-      ]
+      dir: require("path").join(__dirname, "./coverage/ng-test1"),
+      subdir: ".",
+      reporters: [{ type: "html" }, { type: "text-summary" }],
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ["progress", "kjhtml"],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome',],
+    browsers: ["Chrome"],
     singleRun: false,
     restartOnFileChange: true,
     customLaunchers: {
       FirefoxSemCabeca: {
-        base: 'Firefox', // Baseado no firefox
-        flags: ['-headless'] // E quando for chamado vai passar o parâmetro para usar o modo headless
-      }
-    } 
+        base: "Firefox", // Baseado no firefox
+        flags: ["-headless"], // E quando for chamado vai passar o parâmetro para usar o modo headless
+      },
+    },
   });
 };
