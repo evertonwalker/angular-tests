@@ -10,7 +10,9 @@
     "test-ci": "ng test --watch=false --reporters junit --browsers ChromeHeadless",
     "test-coverage": "ng test --watch=false --sourceMap=true --codeCoverage=true --browsers ChromeHeadless",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "api": "node ./server/server.js",
+    "all": "concurrently \"npm run api\" \"npm run start\""
   },
   "private": true,
   "dependencies": {
@@ -37,6 +39,10 @@
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
+    "datauri": "^3.0.0",
+    "express": "^4.17.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.1.0",

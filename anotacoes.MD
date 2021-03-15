@@ -121,3 +121,8 @@ e além disso ele vai criar uma pasta chamada coverage que lá irá ter u <b>HTM
 não estão sendo cobertas.
 
 script: <code > "test-coverage": "ng test --watch=false --sourceMap=true --codeCoverage=true --browsers ChromeHeadless", </script>
+
+# Tempo de testes
+
+Ao rodar o código da integração continua com o Junit ele gera um time para cada teste executado, você pode colocar um timeTracer no seu jenkins, 
+ou o seu CI para metrificar os testes que estão sendo feitos na sua aplicação.
