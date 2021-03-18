@@ -8,19 +8,17 @@ describe(LikeWidgetComponent.name, () => {
   let fixture: ComponentFixture<LikeWidgetComponent>;
   let component: LikeWidgetComponent;
 
-  beforeEach( async () => {
-
+  beforeEach(async () => {
     // Compile components, espera a junção entre o component + teamplate dele.
     // Também da pra fazer sem o compileCOmponents() e esse retorno de promise, porém a gente cria a dependência de que, o angular cli, precisará continuar usando o webpack, para poder
     // continuar copilando o projeto em momento de execução e não temos como viver de uma premisa, então é interessante blindar ao máximo possível.
     await TestBed.configureTestingModule({
       // Você pode importar o seu módulo ou as dependências dele separada semelhante o módulo com declarations, providers, imports..
-      imports: [ LikeWidgetModule]
+      imports: [LikeWidgetModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LikeWidgetComponent);
     component = fixture.componentInstance;
-
   });
 
   it('Should create component', () => {
@@ -32,18 +30,17 @@ describe(LikeWidgetComponent.name, () => {
   it('Should auto generate id during NgOnit when (@Input id) is not assinged', () => {
     fixture.detectChanges();
     expect(component.id).toBeTruthy();
-
-  })
+  });
 
   it('Should NOT auto-generated Id during NgOnit when (@Input Id) is assinged', () => {
     const someId = 'someId';
     component.id = someId;
     fixture.detectChanges();
     expect(component.id).toBe(someId);
-  })
+  });
 
   // É interessante que quando for testar métodos assyncronos vc use o callback para validar se essa chamada foi executada.
-  it(`#${LikeWidgetComponent.prototype.like.name} should trigger (@Output liked) emission when call`, done => {
+  it(`#${LikeWidgetComponent.prototype.like.name} should trigger (@Output liked) emission when call`, (done) => {
     fixture.detectChanges();
     component.liked.subscribe(() => {
       expect(true).toBeTrue();
@@ -58,11 +55,43 @@ describe(LikeWidgetComponent.name, () => {
     spyOn(component.liked, 'emit'); // -> ao Fazer isso transformamos o método em um spy
     fixture.detectChanges();
     component.like();
-    expect(component.liked.emit).toHaveBeenCalled()
-
+    expect(component.liked.emit).toHaveBeenCalled();
   });
 
+  it(`(DOM) Should display number of likes when clicked`, (done) => {
+    component.liked.subscribe(() => {
+      component.likes++;
+      fixture.detectChanges();
+      const counterElement: HTMLElement = fixture.nativeElement.querySelector(
+        '.like-counter'
+      );
+      expect(counterElement.textContent.trim()).toBe('1');
+      done();
+    });
 
+    const likeWidgetContainer: HTMLElement = fixture.nativeElement.querySelector(
+      '.like-widget-container'
+    );
+    likeWidgetContainer.click();
+  });
 
+  it(`(DOM) Should display number of likes when ENTER key is pressed`, (done) => {
+    component.liked.subscribe(() => {
+      component.likes++;
+      fixture.detectChanges();
+      const counterElement: HTMLSpanElement = fixture.nativeElement.querySelector(
+        '.like-counter'
+      );
+      expect(counterElement.textContent.trim()).toBe('1');
+      done();
+    });
 
+    const likeWidgetContainer: HTMLDivElement = fixture.nativeElement.querySelector(
+      '.like-widget-container'
+    );
+    // Código feito para realizar teste funções utilizando o teclado, nós não possuímos métodos como click, blur nos elementos, mas eles recebem
+    // dispatchEvent que isso vc pode passar um evento e com isso simular.
+    const event = new KeyboardEvent('keyup', { key: 'Enter' });
+    likeWidgetContainer.dispatchEvent(event);
+  });
 });
