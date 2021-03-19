@@ -20,6 +20,7 @@ describe('Action', () => {
     const div: HTMLElement = fixture.nativeElement.querySelector(
       '.dummy-component'
     );
+
     const event = new KeyboardEvent('keyup', { key: 'Enter' });
     div.dispatchEvent(event);
     expect(component.hasEvent()).toBe(true);
@@ -34,7 +35,7 @@ describe('Action', () => {
 class ActionDirectiveTestComponent {
   private event: Event = null;
 
-  public actionHandle(event: Event): void {
+  public actionHandler(event: Event): void {
     this.event = event;
   }
 
