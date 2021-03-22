@@ -3,20 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LikeWidgetModule } from './shared/services/unique-id/components/like-widget/like-widget.module';
-import { PhotoFrameModule } from './shared/services/unique-id/components/photo-frame/photo-frame.module';
+import { LikeWidgetModule } from './shared/components/like-widget/like-widget.module';
+import { PhotoFrameModule } from './shared/components/photo-frame/photo-frame.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LikeWidgetModule,
-    PhotoFrameModule
+    PhotoFrameModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

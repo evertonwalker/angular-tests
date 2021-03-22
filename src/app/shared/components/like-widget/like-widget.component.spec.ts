@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { UniquedIdService } from '../../unique-id.service';
+import { UniquedIdService } from '../../services/unique-id/unique-id.service';
 import { LikeWidgetComponent } from './like-widget.component';
 import { LikeWidgetModule } from './like-widget.module';
 
