@@ -124,5 +124,10 @@ script: <code > "test-coverage": "ng test --watch=false --sourceMap=true --codeC
 
 # Tempo de testes
 
-Ao rodar o código da integração continua com o Junit ele gera um time para cada teste executado, você pode colocar um timeTracer no seu jenkins, 
+Ao rodar o código da integração continua com o Junit ele gera um time para cada teste executado, você pode colocar um timeTracer no seu jenkins,
 ou o seu CI para metrificar os testes que estão sendo feitos na sua aplicação.
+
+# NgOnChange nos testes
+
+No component de photo-board, existe um teste exemplificando a composição de componentes e como testar esse fluxo, vale a pena a leitura no comentário
+para entender o motivo do ngOnChange não ser chamado no fixture.detectChanges();

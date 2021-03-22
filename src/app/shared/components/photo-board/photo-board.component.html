@@ -1,0 +1,7 @@
+<ol>
+  <li *ngFor="let cols of rows" >
+      <div class="col" *ngFor="let photo of cols">
+        <app-photo-frame [src]="photo.url" [description]="photo.description" ></app-photo-frame>
+      </div>
+  </li>
+</ol>
