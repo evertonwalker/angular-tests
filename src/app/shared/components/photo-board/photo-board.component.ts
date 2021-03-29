@@ -7,7 +7,7 @@ import { Photo } from './interfaces/photos';
   styleUrls: ['./photo-board.component.scss'],
 })
 export class PhotoBoardComponent implements OnChanges {
-  @Input() public photos: Photo[];
+  @Input() public photos: Photo[] = [];
   public rows: any[][] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -18,11 +18,10 @@ export class PhotoBoardComponent implements OnChanges {
 
   private groupColumns(photos: Photo[]): any[][] {
     const newRows = [];
-    const step = 4;
-    for (let index = 0; index < photos.length; index += step) {
-      newRows.push(photos.slice(index, index + step));
-    }
-
+      const step = 4;
+      for (let index = 0; index < photos.length; index += step) {
+        newRows.push(photos.slice(index, index + step));
+      }
     return newRows;
   }
 }
